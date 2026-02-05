@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOTLOGIC Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="settings-container">
+    <header>
+      <h1>LOTLOGIC Settings</h1>
+      <p class="subtitle">Customize your experience</p>
+    </header>
+
+    <div class="settings-content">
+      <!-- Bidding Preferences -->
+      <section class="settings-section">
+        <h2>Bidding Preferences</h2>
+        
+        <div class="setting-item">
+          <label for="targetProfit">Target Profit ($)</label>
+          <input type="number" id="targetProfit" min="0" step="50" value="500">
+          <p class="setting-description">Minimum profit you want to make per vehicle</p>
+        </div>
+
+        <div class="setting-item">
+          <label for="fees">Copart Fees ($)</label>
+          <input type="number" id="fees" min="0" step="10" value="180">
+          <p class="setting-description">Average Copart auction fees</p>
+        </div>
+
+        <div class="setting-item">
+          <label for="transportCost">Transport Cost ($)</label>
+          <input type="number" id="transportCost" min="0" step="10" value="100">
+          <p class="setting-description">Average cost to transport vehicle</p>
+        </div>
+      </section>
+
+      <!-- Notification Settings -->
+      <section class="settings-section">
+        <h2>Notifications</h2>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="notificationsEnabled" checked>
+            <span>Enable Notifications</span>
+          </label>
+          <p class="setting-description">Get alerts about saved lots</p>
+        </div>
+
+        <div class="setting-item">
+          <label for="notifyBeforeAuction">Auction Reminder (hours before)</label>
+          <input type="number" id="notifyBeforeAuction" min="1" max="168" value="24">
+          <p class="setting-description">Get notified before auction ends</p>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="notifyOnPriceChange" checked>
+            <span>Notify on Any Price Change</span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label for="notifyOnPriceDrop">Price Drop Alert ($)</label>
+          <input type="number" id="notifyOnPriceDrop" min="0" step="50" value="100">
+          <p class="setting-description">Alert when price drops by this amount</p>
+        </div>
+      </section>
+
+      <!-- Display Preferences -->
+      <section class="settings-section">
+        <h2>Display</h2>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="showDetailedBreakdown" checked>
+            <span>Show Detailed Metal Breakdown</span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="showBiddingGuidance" checked>
+            <span>Show Bidding Guidance</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Metal Prices -->
+      <section class="settings-section">
+        <h2>Metal Prices</h2>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="useManualPrices">
+            <span>Use Manual Prices</span>
+          </label>
+          <p class="setting-description">Override API prices with your local scrap yard prices</p>
+        </div>
+
+        <div id="manualPricesSection" style="display: none;">
+          <div class="manual-prices-grid">
+            <div class="price-input">
+              <label>Steel ($/lb)</label>
+              <input type="number" id="priceSteel" step="0.01" value="0.12">
+            </div>
+            <div class="price-input">
+              <label>Aluminum ($/lb)</label>
+              <input type="number" id="priceAluminum" step="0.01" value="0.85">
+            </div>
+            <div class="price-input">
+              <label>Copper ($/lb)</label>
+              <input type="number" id="priceCopper" step="0.01" value="3.50">
+            </div>
+            <div class="price-input">
+              <label>Stainless ($/lb)</label>
+              <input type="number" id="priceStainless" step="0.01" value="0.45">
+            </div>
+            <div class="price-input">
+              <label>Brass ($/lb)</label>
+              <input type="number" id="priceBrass" step="0.01" value="2.20">
+            </div>
+            <div class="price-input">
+              <label>Lead ($/lb)</label>
+              <input type="number" id="priceLead" step="0.01" value="0.95">
+            </div>
+            <div class="price-input">
+              <label>Platinum ($/oz)</label>
+              <input type="number" id="pricePlatinum" step="1" value="950">
+            </div>
+            <div class="price-input">
+              <label>Palladium ($/oz)</label>
+              <input type="number" id="pricePalladium" step="1" value="950">
+            </div>
+            <div class="price-input">
+              <label>Rhodium ($/oz)</label>
+              <input type="number" id="priceRhodium" step="1" value="4500">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <div class="settings-actions">
+        <button id="saveSettings" class="btn-primary">Save Settings</button>
+        <button id="resetSettings" class="btn-secondary">Reset to Defaults</button>
+        <button id="clearCache" class="btn-secondary">Clear Metal Price Cache</button>
+      </div>
+
+      <!-- Status Message -->
+      <div id="statusMessage" class="status-message"></div>
+    </div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

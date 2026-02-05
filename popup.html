@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LOTLOGIC</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="popup-container">
+    <h1 id="popup-title">LOTLOGIC</h1>
+    <p class="subtitle">Quick scrap value analysis for auction vehicles</p>
+
+    <!-- Main analyze button first -->
+    <button id="analyze">Analyze Lot</button>
+    
+    <!-- Secondary buttons below in a row -->
+    <div class="secondary-buttons">
+      <button id="viewSaved" class="secondary-btn">Saved Lots</button>
+      <button id="openSettings" class="secondary-btn">Settings</button>
+    </div>
+
+    <!-- Action buttons (save and download) -->
+    <div class="action-row" style="display:none;">
+      <button id="saveLot" class="action-btn">Save Lot</button>
+      <button id="download" class="action-btn">Download PDF</button>
+    </div>
+
+    <div id="output">
+      <div class="placeholder">
+        <p>
+          Select a Copart lot page and click
+          <strong>Analyze Lot</strong>
+          to see the scrap value.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUIRED LIBRARIES (GLOBAL, NOT MODULES) -->
+  <script src="libs/html2canvas.min.js"></script>
+  <script src="libs/jspdf.umd.min.js"></script>
+
+  <!-- MAIN POPUP LOGIC -->
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

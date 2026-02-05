@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "LOTLOGIC",
+  "version": "1.0",
+  "description": "Smart scrap value analysis for Copart lots with saved lots and notifications",
+  "permissions": [
+    "tabs",
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://www.copart.com/*",
+    "https://*.iaai.com/*",
+    "https://api.metalpriceapi.com/*",
+    "https://vpic.nhtsa.dot.gov/*",
+    "https://auto.dev/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.copart.com/*",
+        "https://*.iaai.com/*"
+      ],
+      "js": ["libs/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "libs/html2canvas.min.js",
+        "libs/jspdf.umd.min.js",
+        "data/vehicles.json"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "options_page": "settings.html"
+}
